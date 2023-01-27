@@ -83,8 +83,8 @@
 			function update() {
 				// Increase positionX by 10 pixels
 				positionX = positionX + speed;
-				postitionY = positionY + speedY;
-				moveBoxTo(positionX);
+				positionY = positionY + speedY;
+				moveBoxTo(positionX, positionY);
 				if (positionX > boardWidth) {
 					speed = speed * -1;
 				}
@@ -96,8 +96,7 @@
 				}
 				if (positionY < 0) {
 					speedY = speedY * -1;
-				}
-				moveBoxTo(positionX, positiony);
+				}				
 				
 				
 
@@ -128,7 +127,7 @@
 				else if (speedY < 0) {
 					speedY = speedY -3;
 				}
-				console.log(speed);
+				
 				
 			
 
