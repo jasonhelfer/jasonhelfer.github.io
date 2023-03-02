@@ -20,12 +20,13 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-        var circle;
-        var circles = [];
+        var circle; // variable for a single circle
+        var circles = []; // variable to hold every circle in an array
 
 
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {
+            // code to draw circle
             circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
             physikz.addRandomVelocity(circle, canvas);
             view.addChild(circle);
@@ -33,6 +34,7 @@ var init = function (window) {
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
+        // loop that makes 100 circles
         for (var loopsCompleted = 0; loopsCompleted < 100; loopsCompleted++){
             drawCircle();
         }
@@ -49,14 +51,15 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-           
+           // deleted for array
             
 
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-          
+          // deleted for array
 
             // TODO 9 : Iterate over the array
+            // loop that makes the new circles move and stay inbounds
            for (var i = 0; i < circles.length; i++) {
             var eachCircle = circles[loopsCompleted];
             var eachCircle = circles[i];
@@ -79,13 +82,16 @@ var init = function (window) {
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            if ( circle.x > canvas.length ) {
+            // if the circle goes past the left of the screen place it on the right
+            if ( circle.x < canvas.length ) {
                 circle.x = 0;
             }
+            // if the circle goes past the bottom place it on the top
             if ( circle.y > canvas.width ) {
                 circle.y = 0;
             }
-            if ( circle.y > canvas.length ) {
+            // if the circle goes past the top place it at the bottom
+            if ( circle.y < canvas.length ) {
                 circle.y = 0;
             }
         }    
