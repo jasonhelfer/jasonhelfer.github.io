@@ -21,18 +21,19 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 900, "y": groundY - 100},
                 { "type": "enemy", "x": 400, "y": groundY - 50},
                 { "type": "reward", "x": 500, "y": groundY - 100},
+                { "type": "firehydrant", "x": 1200, "y": groundY - 75},
                 
             ]
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
         function createSawBlade (x, y) {
             var hitZoneSize = 25;
-            var damageFromObstacle = 10;
+            var damageFromObstacle = 40;
             var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             sawBladeHitZone.x = x;
             sawBladeHitZone.y = y;
@@ -42,13 +43,25 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         };
+        function createFireHydrant (x, y) {
+            var hitZoneSize = 25;
+            var damageFromObstacle = 25;
+            var fireHydrantHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            fireHydrantHitZone.x = x;
+            fireHydrantHitZone.y = y;
+            game.addGameItem(fireHydrantHitZone);
+            var obstacleImage = draw.bitmap("img/firehydrant.jpg");
+            fireHydrantHitZone.addChild(obstacleImage);
+            obstacleImage.x = -25;
+            obstacleImage.y = -25;
+        };
     
         function createEnemy(x, y){
             var enemy = game.createGameItem("enemy", 25);
-            var redSquare = draw.rect(50, 50, "red");
-            redSquare.x = -25;
-            redSquare.y = -25;
-            enemy.addChild(redSquare);
+            var hitMan = draw.bitmap("img/hitman.jpg");
+            hitMan.x = -25;
+            hitMan.y = -25;
+            enemy.addChild(hitMan);
             enemy.x = x;
             enemy.y = y;
             game.addGameItem(enemy);
@@ -57,24 +70,39 @@ var level01 = function (window) {
                 game.changeIntegrity(-10)
             };
             enemy.onProjectileCollision = function () {
-                game.increaseScore(100);
+                game.increaseScore(10);
                 enemy.fadeOut();
             };
         }
+        
+        function createFireHydrant (x, y) {
+            var hitZoneSize = 25;
+            var damageFromObstacle = 25;
+            var fireHydrantHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            fireHydrantHitZone.x = x;
+            fireHydrantHitZone.y = y;
+            game.addGameItem(fireHydrantHitZone);
+            var obstacleImage = draw.bitmap("img/firehydrant.jpg");
+            fireHydrantHitZone.addChild(obstacleImage);
+            obstacleImage.x = -25;
+            obstacleImage.y = -25;
+        }
+        
             function createReward(x, y) {
                 var reward = game.createGameItem("reward", 25);
-                var orangeSquare = draw.rect(50, 50, "orange");
+                var bolts = draw.bitmap("img/bolts2.jpg");
                 damageFromObstacle = 50;
-                orangeSquare.x = -25;
-                orangeSquare.y = -25;
-                reward.addChild(orangeSquare);
+                bolts.x = -25;
+                bolts.y = -25;
+                reward.addChild(bolts);
                 reward.x = x;
                 reward.y = y;
                 game.addGameItem(reward);
                 reward.velocityX = -2;
                 reward.onPlayerCollision = function () {
-                    game.changeIntegrity(+50)
+                    game.changeIntegrity(+50);
                     reward.fadeOut();
+                    game.increaseScore(25);
             }
         }
 
@@ -89,6 +117,9 @@ var level01 = function (window) {
             }
             else if (gameItem.type === "reward"){
                 createReward(gameItem.x, gameItem.y);
+            }
+            else if (gameItem.type === "firehydrant"){
+                createFireHydrant(gameItem.x, gameItem.y);
             }
         }
         

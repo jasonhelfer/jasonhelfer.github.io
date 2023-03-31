@@ -39,6 +39,8 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
+            var backgroundFill = draw.bitmpap(canvasWidth, groundY, "img/city.jpg");
+            background.addChild(backgroundFill);
             var backgroundFill = draw.rect(canvasWidth, groundY, 'black');
             background.addChild(backgroundFill);
             
