@@ -57,10 +57,11 @@ var level01 = function (window) {
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
+        // creates sawblades
         function createSawBlade (x, y) {
             var hitZoneSize = 25;
             var damageFromObstacle = 40;
@@ -73,8 +74,9 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         };
+        // creates fire hydrants
         function createFireHydrant (x, y) {
-            var hitZoneSize = 20;
+            var hitZoneSize = 25;
             var damageFromObstacle = 25;
             var fireHydrantHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             fireHydrantHitZone.x = x;
@@ -85,7 +87,7 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         };
-    
+        // creates enemies
         function createEnemy(x, y){
             var enemy = game.createGameItem("enemy", 25);
             var hitMan = draw.bitmap("img/hitman.jpg");
@@ -104,7 +106,7 @@ var level01 = function (window) {
                 enemy.fadeOut();
             };
         }
-        
+        // creates fire hydrants code only works with this second function.
         function createFireHydrant (x, y) {
             var hitZoneSize = 25;
             var damageFromObstacle = 25;
@@ -117,7 +119,7 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         }
-        
+            // creates rewards
             function createReward(x, y) {
                 var reward = game.createGameItem("reward", 25);
                 var bolts = draw.bitmap("img/bolts2.jpg");
@@ -135,7 +137,7 @@ var level01 = function (window) {
                     game.increaseScore(25);
             };
         }
-
+        // loop that calls the game items
         for(var i = 0; i < levelData.gameItems.length; i++ ){
             var gameItem = levelData.gameItems[i];
 

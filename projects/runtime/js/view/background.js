@@ -43,6 +43,7 @@ var background = function (window) {
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
+            // code that adds the moons and stars
             var moon = draw.bitmap("img/moon.png");
                 moon.x = 1525;
                 moon.y = 0;
@@ -57,7 +58,7 @@ var background = function (window) {
                 }
                 
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
+            // code that adds the buildings
             for (var i = 0; i < 5; ++i) {
                 var buildingHeight = 400;
                 var building = draw.rect(75, buildingHeight, "grey", "black", 1);
@@ -67,6 +68,7 @@ var background = function (window) {
                 buildings.push(building);
             }
             // TODO 4: Part 1 - Add a tree
+            // code that adds the tree
             tree = draw.bitmap("img/tree.png");
             tree.x = 400;
             tree.y = 200;
@@ -85,6 +87,7 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
+            // code that animates the tree
             tree.x = tree.x - 1;
 
             if (tree.x < -200) {
@@ -93,6 +96,7 @@ var background = function (window) {
             
             
             // TODO 5: Part 2 - Parallax
+            // code that repeats the buildings, adding parallax
             for (var i = 0; i < buildings.length; i++) {
                 var building = buildings[i];
             building.x = building.x - 3;
