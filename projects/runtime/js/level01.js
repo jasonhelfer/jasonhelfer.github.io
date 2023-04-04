@@ -16,18 +16,48 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY - 100},
-                { "type": "sawblade", "x": 600, "y": groundY - 100},
-                { "type": "sawblade", "x": 900, "y": groundY - 100},
+                { "type": "sawblade", "x": 400, "y": groundY - 125},
+                { "type": "sawblade", "x": 600, "y": groundY - 10},
+                { "type": "sawblade", "x": 900, "y": groundY - 125},
                 { "type": "enemy", "x": 400, "y": groundY - 50},
-                { "type": "reward", "x": 500, "y": groundY - 100},
-                { "type": "firehydrant", "x": 1200, "y": groundY - 75},
-                
+                { "type": "reward", "x": 4000, "y": groundY - 100},
+                { "type": "enemy", "x": 2000, "y": groundY - 50},
+                { "type": "sawblade", "x": 2400, "y": groundY - 10},
+                { "type": "enemy", "x": 2500, "y": groundY - 50},
+                { "type": "firehydrant", "x": 1100, "y": groundY - 10},
+                { "type": "firehydrant", "x": 2700, "y": groundY - 10},
+                { "type": "reward", "x": 2800, "y": groundY - 100},
+                { "type": "sawblade", "x": 2900, "y": groundY - 125},
+                { "type": "sawblade", "x": 3000, "y": groundY - 10},
+                { "type": "enemy", "x": 1300, "y": groundY - 50},
+                { "type": "sawblade", "x": 1400, "y": groundY - 10},
+                { "type": "sawblade", "x": 1600, "y": groundY - 125},
+                { "type": "reward", "x": 1750, "y": groundY - 100},
+                { "type": "enemy", "x": 3200, "y": groundY - 50},
+                { "type": "firehydrant", "x": 3300, "y": groundY - 10},
+                { "type": "sawblade", "x": 3400, "y": groundY - 125},
+                { "type": "enemy", "x": 3500, "y": groundY - 50},
+                { "type": "sawblade", "x": 3600, "y": groundY - 10},
+                { "type": "sawblade", "x": 3800, "y": groundY - 125},
+                { "type": "sawblade", "x": 3950, "y": groundY - 125},
+                { "type": "enemy", "x": 4150, "y": groundY - 50},
+                { "type": "sawblade", "x": 4050, "y": groundY - 10},
+                { "type": "sawblade", "x": 4200, "y": groundY - 125},
+                { "type": "reward", "x": 4400, "y": groundY - 10},
+                { "type": "sawblade", "x": 4300, "y": groundY - 125},
+                { "type": "enemy", "x": 4500, "y": groundY - 50},
+                { "type": "firehydrant", "x": 4600, "y": groundY - 10},
+                { "type": "enemy", "x": 4650, "y": groundY - 50},
+                { "type": "sawblade", "x": 4700, "y": groundY - 125},
+                { "type": "reward", "x": 4800,  "y": groundY - 100},
+                { "type": "reward", "x": 4900, "y": groundY - 100},
+                { "type": "reward", "x": 5000, "y": groundY - 100},
+
             ]
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(false);
+        game.setDebugMode(true);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
@@ -44,7 +74,7 @@ var level01 = function (window) {
             obstacleImage.y = -25;
         };
         function createFireHydrant (x, y) {
-            var hitZoneSize = 25;
+            var hitZoneSize = 20;
             var damageFromObstacle = 25;
             var fireHydrantHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             fireHydrantHitZone.x = x;
@@ -103,7 +133,7 @@ var level01 = function (window) {
                     game.changeIntegrity(+50);
                     reward.fadeOut();
                     game.increaseScore(25);
-            }
+            };
         }
 
         for(var i = 0; i < levelData.gameItems.length; i++ ){
