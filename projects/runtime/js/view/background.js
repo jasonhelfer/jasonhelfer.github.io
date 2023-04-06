@@ -74,9 +74,8 @@ var background = function (window) {
             tree.y = 200;
             background.addChild(tree);
             
-            
         } // end of render function - DO NOT DELETE
-        
+       
         
         // Perform background animation
         // called on each timer "tick" - 60 times per second
