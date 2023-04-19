@@ -90,7 +90,7 @@ var level01 = function (window) {
         // creates enemies
         function createEnemy(x, y){
             var enemy = game.createGameItem("enemy", 25);
-            var hitMan = draw.bitmap("img/hitman.jpg");
+            var hitMan = draw.bitmap("img/hitman2.jpg");
             hitMan.x = -25;
             hitMan.y = -25;
             enemy.addChild(hitMan);
