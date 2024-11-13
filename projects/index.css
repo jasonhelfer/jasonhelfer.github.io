@@ -1,0 +1,41 @@
+
+body {
+  background-color: blue;
+  background-image: url(diamond.jpg);
+}
+
+#board {
+  width: 440px;
+  height: 440px;
+  border: 1px solid white;
+  background-color: black;
+  background-image: url(money.jpg);
+}
+
+#score, #highScore {
+  color: black;
+}
+
+.snake, .apple {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  user-select: none;
+}
+
+.snake {
+  background-color: black;
+
+  z-index: 2;
+}
+
+#snake-head {
+  background-color: black;
+}
+
+.apple {
+  width: 20px;
+  height: 20px;
+  background-image: url(ruby.jpg)
+}
