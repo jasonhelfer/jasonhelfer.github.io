@@ -56,7 +56,8 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-   repositionGameItem();
+   repositionGameItem(walker);
+   repositionGameItem(walker2);
    redrawGameItem(); 
    wallCollision();
    doCollide();
@@ -123,11 +124,9 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-  function repositionGameItem() {
-    walker.xPos += walker.speedX;
-    walker.yPos += walker.speedY;
-    walker2.xPos += walker2.speedX;
-    walker2.yPos += walker2.speedY;
+  function repositionGameItem(obj) {
+    obj.xPos += obj.speedX;
+    obj.yPos += obj.speedY;
   };
 
   function redrawGameItem() {
