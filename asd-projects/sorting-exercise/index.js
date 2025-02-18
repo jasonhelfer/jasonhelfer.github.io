@@ -27,7 +27,7 @@ async function bubbleSort(array){
 }
 
 // TODO 3: Implement quickSort
-async function quckSort(array, left, right){
+async function quickSort(array, left, right){
     if (right - left < 0){ // base case
         return; 
     }
@@ -42,7 +42,26 @@ async function quckSort(array, left, right){
 }
 
 // TODOs 4 & 5: Implement partition
-
+async function partition(array, left, right){
+    let pivot = array[Math.floor((right + left) / 2)].value; // creates a variable named pivot that selects the amount by finding the index and using its value
+    while(left < right){
+        while(array[left].value < pivot){
+            left++;
+        }
+        while(array[right].value > pivot){
+            right--;
+        }
+        if(left < right){
+            swap(array, left, right)
+            updateCounter(quickCounter);
+            await sleep();
+        }
+    }
+    
+    
+    
+    return left + 1;
+}
 
 // TODO 1: Implement swap
 function swap(array, i, j){
