@@ -1,12 +1,14 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(241, 93, 19);
 }
 
 #board {
   width: 900px;
   height: 500px;
-  border: 1px solid white;
+  left: 500px;
+  top: 200px;
+  border: 10px solid white;
   background-color: black;
   position: relative;
 }
@@ -20,16 +22,20 @@ body {
 
 #paddleLeft {
   background-color: rgb(255, 255, 255);
-   left: 10px;  /*Uncomment if you want to set a "starting" position */
+  border: 5px solid rgb(25, 13, 238);
+  border-radius: 2px;
+  left: 10px;  /*Uncomment if you want to set a "starting" position */
   top: 150px;    /* Uncomment if you want to set a "starting" position */
 }
 #paddleRight {
   background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(228, 5, 5);
+  border-radius: 0px;
   left: 860px;  /*Uncomment if you want to set a "starting" position */
   top: 150px;    /* Uncomment if you want to set a "starting" position */
 }
 #ball {
-  background-color: white;
+  background-color: rgb(245, 96, 22);
   width: 20px;
   height: 20px;
   border-radius: 50px;
@@ -37,4 +43,41 @@ body {
   left: 435px;
   top: 220px;
 
+}
+#title{
+  background-color: white;
+  position: absolute;
+  left: 0px; 
+  top: 520px;
+  font-size: 90px;
+}
+#scoreLeft {
+  background-color: white;
+  position: absolute;
+  left: 0px; 
+  top: 520px;
+  font-size: 90px;
+}
+
+#scoreRight{
+  background-color: white;
+  position: absolute;
+  left: 850px; 
+  top: 520px;
+  font-size: 90px;
+}
+
+#button-box {
+  position: relative;
+  top: 200px;
+}
+
+button {
+  width: 200px;
+  padding: 20px;
+  margin-left: 400px;
+}
+
+#reset {
+  background: red;
 }
