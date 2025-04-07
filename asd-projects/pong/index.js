@@ -16,6 +16,7 @@ function runProgram(){
   const PADDLE_WIDTH = $("#paddleLeft").width();
   const BALL_HEIGHT = $("#ball").height();
   const BALL_WIDTH = $("#ball").width();
+  const WINNING_SCORE = 7;
   // Game Item Objects
   const KEY = {
     "W": 87,
@@ -46,6 +47,8 @@ function runProgram(){
   var scoreLeftNumber = 0;
   var scoreRightNumber = 0;
   var offset = 1;
+  $("#playAgainButton").hide();
+  
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);
@@ -75,7 +78,9 @@ function runProgram(){
     $("#scoreRight").text(scoreRightNumber);
     scoring(paddleLeft, scoreLeft);
     scoring(paddleRight, scoreRight);
-    playAgain();
+    $("#Title").text("JASON'S PONG");
+    checkWin(scoreLeftNumber, scoreRightNumber);
+
   }
   
   /* 
@@ -127,7 +132,7 @@ function runProgram(){
     $(obj.id).css("left", obj.x);
     $(obj.id).css("top", obj.y);
   }
-//brogans code
+
   function updateGameItem(obj){
     obj.x += obj.speedX;
     obj.y += obj.speedY;
@@ -176,22 +181,20 @@ function doCollide (ball, paddle){
 function scoring (paddle, score){
   score.y = paddle.y + offset;
 }
+
 function checkWin(){
-  if (scoreLeft >= WINNING_SCORE){
-    endGame("RED Wins!");
-  } else if (scoreRight >= WINNING_SCORE){
-    endGame("BLUE Wins!");
+  if (scoreLeftNumber >= WINNING_SCORE){
+    $("#playAgainButton").show();
+  } else if (scoreRightNumber >= WINNING_SCORE){
+    $("#playAgainButton").show();
   }
 }
+
 function resetBall (ball){
   ball.x = (BOARD_WIDTH - BALL_WIDTH) / 2;
   ball.y = (BOARD_HEIGHT - BALL_HEIGHT) / 2;
   ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -3 : 1);
   ball.speedY = (Math.random() > 0.5 ? -3 : 1);
-}
-
-function playAgain(){
-  $("#reset").on("click", reset);
 }
 
 

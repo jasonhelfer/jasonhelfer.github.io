@@ -44,15 +44,13 @@ body {
   top: 220px;
 
 }
-#title{
-  background-color: white;
+.title{
   position: absolute;
-  left: 0px; 
-  top: 520px;
-  font-size: 90px;
+  left: 600px; 
+  top: -50px;
+  font-size: 100px;
 }
 #scoreLeft {
-  background-color: white;
   position: absolute;
   left: 0px; 
   top: 520px;
@@ -60,24 +58,18 @@ body {
 }
 
 #scoreRight{
-  background-color: white;
   position: absolute;
   left: 850px; 
   top: 520px;
   font-size: 90px;
 }
 
-#button-box {
-  position: relative;
-  top: 200px;
-}
-
-button {
-  width: 200px;
-  padding: 20px;
-  margin-left: 400px;
-}
-
-#reset {
-  background: red;
+#playAgainButton {
+  position: absolute;
+    left: 375px;
+    top: 200px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+  
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Jason's Pong</title>
     <!-- Load CSS files -->
     <link rel="stylesheet" type="text/css" href="index.css">
     
@@ -11,6 +11,7 @@
   </head>
   
   <body>
+    <p class = "title"> JASON'S PONG</p>
     <div id='board'>
       <div class = "paddle" id='paddleLeft'></div>
       <div class = "paddle" id='paddleRight'></div>
@@ -18,7 +19,6 @@
       <div id= "title"></div>
       <div id= "scoreLeft"></div>
       <div id= "scoreRight"></div>
-      <div id="button-box">
-        <button id="reset">Play Again</button></div>
+      <input id ="playAgainButton" type="button" value = "Play Again" onclick="window.location.reload()"></input>
   </body>
 </html>
